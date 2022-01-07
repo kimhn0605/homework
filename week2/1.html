@@ -1,0 +1,63 @@
+<!DOCTYPE html>  
+<html>
+  <head>
+    <title>WEB - CSS</title>
+    <meta charset="utf-8">
+
+    <style>       /*CSS 작성하는 부분을 의미하는 <style> 태그*/
+      a {         /*이 웹페이지에 있는 모든 a 태그에 해당 CSS 효과를 적용하겠다는 의미 
+                     누구에게 적용할 것인지에 대한 선택자 필수*/
+
+        color : black;         /*폰트 색깔 : color*/
+        text-decoration: none;   /*밑줄 해제*/
+      }
+      h1 {
+        font-size : 45px;
+        text-align : center;     /*가운데 정렬*/
+      }
+
+    /* 모든 링크는 기본적으로 검은색, 사용자가 방문했던 글은 회색, 현재 페이지는 빨간색으로 표시
+        HTML과 CSS 페이지는 이미 봤다고 가정하고 회색으로 동시에 지정하려면 
+        둘이 그룹 (=> 클래스 : HTML의 속성) 으로 묶고 한 번에 지정하면 됨.
+        여기서는 35-36line 에 class="saw" 로 묶었으니까 saw 라는 클래스값을 가지고 있는 모든 태그에 대해 지정
+        그리고 이름이 saw{}인 태그가 아닌 class가 saw인 태그를 가리키는 선택자를 지정해야 하니까 .saw{} 라고 써줘야함.
+    */
+    .saw {       /* 클래스 선택자를 쓸 때는 앞에 .을 반드시 붙여야 함*/
+      color:gray;
+    }
+
+    #active {    /* ID 선택자를 쓸 때는 앞에 #을 반드시 붙여야 함
+                    만약 #를 붙이지 않고 saw를 active보다 뒤에 명령했다면 CSS 글자색은 빨간색이 아니라 회색이 됨. 
+                    -> 가장 최근 명령을 따르게 되는데, 이럴 때는 우선순위가 높은 ID 선택자를 사용하고, #을 써줘야 함.*/
+      color:red;
+    }
+  
+    /* class 라는 속성의 값은 여러 개의 값이 들어올 수 있고, 띄어쓰기로 구분함.
+      하나의 태그에는 여러 개의 속성이 들어올 수 있고, 여러 개의 선택자를 통해 하나의 태그를 공동으로 제어할 수 있음. 
+      
+      ** 선택자 (Selector) 우선순위 : ID 선택자 > Class 선택자 > 일반 태그 선택자 인데,
+      만약 선택자가 모두 똑같다면 가장 마지막에 등장하는 선택자의 우선순위가 제일 높음.
+      그리고 id의 값은 웹 페이지에서 단 한 번만 등장해야 함. */
+  
+  </style>
+  </head>
+  <body>
+    <h1><a = href="index.html">WEB</a></h1>
+    <ol>
+      <li><a = href="1.html" class="saw">HTML</a></li>
+      <li><a = href="2.html" class="saw" ID="active">JavaScript</a></li>
+      <li><a = href="3.html">JavaScript</a></li>
+
+       <!-- 예시 : <li><a = href="1.html" style="color:red;text-decoration:underline">CSS</a></li>
+      여기서 style="" 은 html의 속성 => style 속성이 위치하고 있는 이 태그에 css 효과를 적용
+       이렇게 style 태그를 직접 사용한 경우에는 선택자 필요X-->
+    </ol>
+  </body>
+</html>
+
+<!--웹페이지 안에 CSS를 삽입하는 2가지 방법
+  1) style 태그 => 선택자 (Declaration) 필수
+  2) style 속성 => 선택자 (Declaration) 생략 -->
+
+<!-- CSS에서는 세미콜론(;) 이 문장의 마침 역할을 하기 때문에 
+  한 줄로 코드를 작성해도 세미콜론(;)만 잘 쓴다면 상관X-->

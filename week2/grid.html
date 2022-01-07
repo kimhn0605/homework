@@ -1,0 +1,52 @@
+<!DOCTYPE html>  
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+  </head>
+
+  <style>
+    #grid {             /* 두 태그 모두를 감싸는 테두리 (id 선택자) */
+      border : 5px solid pink;
+      display : grid;   /* 그리드 형식을 쓰기 위해서 부모 태그로 감싸줬던 것 */
+      grid-template-columns : 150px 1fr;
+      /* 두 문자를 하나의 칼럼에 배치하기 위해 columns로 지정해주고, 
+         첫 번째 칼럼은 NAVIGATION으로 150px 할당, 두 번째 칼럼은 fr을 이용하여 ARTICLE로 나머지 공간 모두 할당
+         fr -> 화면 전체를 쓰도록 자동으로 조정되는 단위 의미 */
+    }
+    div {               /* 각각의 태그를 감싸는 테두리 (일반 선택자) */
+      border : 5px solid gray;
+    }
+  </style>
+
+  <body>
+    <div id="grid" >    <!-- 두 태그를 감싸는 부모 태그를 생성하고 grid 라는 ID 부여 -->
+      <div>NAVIGATION</div>
+      <div>ARTICLE</div>
+  </div>
+  </body>
+</html>
+
+<!-- 디자인 목적을 위해서 어떤 의미도 존재하지 않는 태그를 사용해야 될 때가 있는데,
+     그럴 때는 <div> 태그 사용하면 됨. <div> 태그는 기본적으로 block level element이기 때문에 화면 전체를 사용함. 
+     이와 마찬가지로, <span> 태그는 inline element로서 아무 의미 없는 태그 -->
+
+<!-- caniuse.com 사이트 : 여러 CSS나 HTML 또는 JavaScript의 기술들 중에서
+     현재 웹브라우저들이 얼마나 그 기술을 채택하고 있는가에 대한 통계를 보여주는 서비스 -->
+
+<!-- grid-column-start 가 단독으로 사용될 때는, 한 개의 그리드 열을 나타냄. (row도 마찬가지로 쓰면 됨.)
+     이때, grid-column-end 속성을 같이 사용하면 여러 열에 걸쳐 확장 가능함. (end 값이 항상 start 값보다 큰 것은 아님.) 
+      그리드 왼쪽이 아닌 오른쪽을 기준으로 한다면 값을 음수로 설정하면 됨. -->
+
+<!-- span : 그리드 선의 시작선과 끝선을 지정하는 대신 열의 넓이를 지정 (양수만 가능하고, 마지막 위치에서 상대적으로도 설정 가능) 
+     Ex) grid-column-end : span 5; -->
+
+<!-- grid-row-start/end 를 더 간편하게 쓰기 위해 grid-row : a / b; 로 단축시킴. 
+     Ex) grid-column : 2 / span 4; => 그리드 2번째 열부터 4칸 모두 해당 -->
+
+<!-- grid-area : grid-row-start / grid-column-start / grid-row-end / grid-column-end 순으로 한꺼번에 입력 가능 -->
+
+<!-- grid-template-rows(columns) : 20% 20% 20% 20% 20% => 각 행(열)의 너비 설정 
+     위 과정은 grid-template-rows(columns) : repeat(5, 20%); 와 동일함.
+     또한, grid-template-columns : 100px 3em 40% 처럼 서로 다른 단위를 섞어 사용할 수도 있음. 
+     grid-template : 행 / 열 형식으로 쓰는 것도 가능함. -->

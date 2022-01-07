@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html Lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name = "viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flex Example</title>
+
+    <style>
+      #flex {
+        display : flex;
+        flex-direction: column;
+        justify-content : flex-end;    /* justify-content : 좌우/가운데 정렬 맞추는 CSS 속성 */
+        /* flex-start : 왼쪽 정렬, center : 가운데 정렬, flex-end : 오른쪽 정렬 */
+        
+        align-items : flex-end;        /* align-items : 상하 정렬 담당하는 CSS 속성 */
+        /* flex-start : 위쪽 정렬, flex-end : 아래쪽 정렬 
+        근데 이렇게만 쓰면 아래쪽 정렬이 바로 안되는 이유는 높이 자체가 낮기 때문에 콘텐츠들이 그 안에서만 고정되어 있게 됨. -> */
+        height : 100vh;     /* vh : view height => 100vh는 화면의 100% 차지하라는 말이니까 이제 하단 정렬이 제대로 실현됨. */
+      
+      }
+
+      .content {
+        border : 1px solid black;
+      }
+    </style>
+
+  </head>
+  <body>
+    <div id="flex">
+      <p class="content">Content1</p>
+      <p class="content">Content2</p>
+      <p class="content">Content3</p>
+    </div>
+  </body>
+</html>
+
+<!-- 웹 페이지 만들 때는 크롬 브라우저 사용할 것!
+     원하는 대로 코드가 실행되지 않을 때 라이브 서버에서 '크롬 개발자 도구'(F12 or Ctrl + Shift + I) 유용한 기능 -->
+
+<!-- CSS FLEX -->
+<!-- Main Axis (메인 축) : Justify-content (가로축) => 좌우 정렬 담당
+     Cross Axis (보조 축) : Align-items (세로축) => 상하 정렬 담당 
+
+     => flex-direction : row : 콘텐츠들이 텍스트 방향으로 정렬됨. (row-reverse : 텍스트의 반대 방향으로 정렬)
+     => flex-direction : column : 콘텐츠들이 위에서 아래 방향으로 쌓이게 됨. (column-reverse : 아래에서 위로 정렬)-->
+
+<!-- space-between : 시작 item은 시작점에, 마지막 item은 끝점에 정렬되고, 나머지 items는 사이에 고르게 정렬됨.
+     space-around : items를 균등한 여백을 포함하여 정렬됨. 
+     Ex) justify-content : space-between; -->
+
+<!-- order : item의 순서를 직접 지정 (기본값은 0이고, 숫자가 클수록 순서가 뒤로 밀림. 음수 허용) -->
+
+<!-- align-self : 개별 요소에 적용할 수 있는 또 다른 속성 (지정한 요소에만 적용됨.) 
+     align-content : 여러 줄들 사이의 간격을 지정
+     align-items : 컨테이너 안에서 어떻게 모든 요소들이 정렬하는 지를 지정
+      => 한 줄만 있는 경우, align-content는 효과x -->
+
+<!-- flex-wrap : wrap; => 줄바꿈을 통해 콘텐츠들을 알아서 나열해줌. (reverse 가능)
+     flex-flow : row(또는 column) wrap => 콘텐츠들을 가로선/세로선 상의 여러 줄에 걸쳐 정렬하는 기능 -->
